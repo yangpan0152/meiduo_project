@@ -15,6 +15,11 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+#指定导包路径，从项目下的apps开始
+import sys
+
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -37,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
+    'verifications.apps.VerificationsConfig',
 ]
 
 MIDDLEWARE = [
@@ -53,8 +60,8 @@ ROOT_URLCONF = 'meiduo1.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, '../../templates')]
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -64,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            # 补充Jinja2模板引擎环境
             'environment': 'utils.jinja2_env.jinja2_environment',
         },
     },
@@ -162,7 +170,7 @@ LOGGING = {
     },
     'filters': {  # 对日志进行过滤
         'require_debug_true': {  # django在debug模式下才输出日志
-            '()': 'django.utils.logs.RequireDebugTrue',
+            '()': 'django.utils.log.RequireDebugTrue',
         },
     },
     'handlers': {  # 日志处理方法
@@ -189,3 +197,7 @@ LOGGING = {
         },
     }
 }
+
+
+# 制定模型类
+AUTH_USER_MODEL = 'users.User'

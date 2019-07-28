@@ -214,6 +214,9 @@ var vm = new Vue({
         },
         // 表单提交
         on_submit(){
+            // 不满足注册条件：禁用表单
+            window.event.returnValue = false;
+
             this.check_username();
             this.check_pwd();
             this.check_cpwd();
@@ -223,26 +226,36 @@ var vm = new Vue({
 
             if (this.error_name == true || this.error_password == true || this.error_check_password == true
                 || this.error_phone == true || this.error_sms_code == true || this.error_allow == true) {
-                // 不满足注册条件：禁用表单
-                window.event.returnValue = false;
+                return;
             }
 
-            // var url = this.host + '/register/';
-            // axios.post(url, {
-            //     username: this.username,
-            //     password: this.password,
-            //     password2: this.password2,
-            //     mobile: this.mobile,
-            //     // 'image_code':this.image_code,
-            //     sms_code: this.sms_code,
-            //     allow: this.allow
-            // }, {
-            //     responseType: 'json'
-            // })
-            //     .then(response => {
-            //     })
-            //     .catch(error => {
-            //     });
+            var url = this.host + '/register/';
+            axios.post(url, {
+                username: this.username,
+                password: this.password,
+                password2: this.password2,
+                mobile: this.mobile,
+                // 'image_code':this.image_code,
+                sms_code: this.sms_code,
+                allow: this.allow,
+
+            }, {
+                responseType: 'json',
+                headers: {
+                    // 'X-CSRFToken': document.getElementsByName('csrfmiddlewaretoken')[0].value
+                    'X-CSRFToken': getCookie('csrftoken')
+                }
+            })
+                .then(response => {
+                    if (response.data.errmsg == 'ok') {
+                        location.href = '/';
+                    } else {
+                        alert(response.data.errmsg);
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
     }
 });
