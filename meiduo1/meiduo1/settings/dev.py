@@ -30,7 +30,10 @@ SECRET_KEY = '6l4d&#m%!1p=)tasd=pq%*#g#0^#40v$2-ru^(%ay4or@w(jl2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'www.meiduo.site',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -44,13 +47,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'verifications.apps.VerificationsConfig',
+    'index.apps.IndexConfig',
+    'oauth.apps.OauthConfig',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -151,6 +156,13 @@ CACHES = {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     },
+    "verify": { # 验证图片text&短信验证码
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/2",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
 }
 #session存放在缓存上
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
@@ -201,3 +213,25 @@ LOGGING = {
 
 # 制定模型类
 AUTH_USER_MODEL = 'users.User'
+
+
+#指定认证后端
+AUTHENTICATION_BACKENDS = ['utils.authenticate_backend.Meiduo_Auth_Backend']
+
+# 指定登录的地址
+LOGIN_URL = '/login/'
+
+# qq授权-应用信息
+QQ_CLIENT_ID = '101518219'
+QQ_CLIENT_SECRET = '418d84ebdc7241efb79536886ae95224'
+QQ_REDIRECT_URI = 'http://www.meiduo.site:8000/oauth_callback'
+
+# 配置发邮件服务器
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # 指定邮件后端
+EMAIL_HOST = 'smtp.163.com'  # 发邮件主机
+EMAIL_PORT = 25  # 发邮件端口
+EMAIL_HOST_USER = 'yangpan0152@163.com'  # 授权的邮箱
+EMAIL_HOST_PASSWORD = 'chuanzhi26'  # 邮箱授权时获得的密码，非注册登录密码
+EMAIL_FROM = '美多商城<yangpan0152@163.com>'  # 发件人抬头
+#邮箱认证地址
+EMAIL_VERIFY_URL = 'http://www.meiduo.site:8000/emails/verification/'

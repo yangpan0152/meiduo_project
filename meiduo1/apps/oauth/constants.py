@@ -1,0 +1,1 @@
+OPENID_EXPIRES = 60 * 60

@@ -343,3 +343,209 @@ Traceback (most recent call last):
     "returned None instead." % (callback.__module__, view_name)
 ValueError: The view users.views.RegisterView didn't return an HttpResponse object. It returned None instead.
 ERROR 2019-07-27 21:43:26,872 basehttp 124 "POST /register/ HTTP/1.1" 500 65200
+ERROR 2019-07-28 20:49:55,484 exception 135 Internal Server Error: /image_codes/9c9071eb-ffa4-4621-88a9-be747885b4a9/
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/python/Desktop/meiduo/meiduo_project/meiduo1/apps/verifications/views.py", line 15, in get
+    redis_cli= get_redis_connection('verify')
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django_redis/__init__.py", line 14, in get_redis_connection
+    cache = caches[alias]
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/cache/__init__.py", line 77, in __getitem__
+    "Could not find config for '%s' in settings.CACHES" % alias
+django.core.cache.backends.base.InvalidCacheBackendError: Could not find config for 'verify' in settings.CACHES
+ERROR 2019-07-28 20:49:55,552 basehttp 124 "GET /image_codes/9c9071eb-ffa4-4621-88a9-be747885b4a9/ HTTP/1.1" 500 95189
+ERROR 2019-07-28 20:50:03,202 exception 135 Internal Server Error: /image_codes/3c9accc0-d0f6-4628-9ffd-92f21ccaf22a/
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/python/Desktop/meiduo/meiduo_project/meiduo1/apps/verifications/views.py", line 15, in get
+    redis_cli= get_redis_connection('verify')
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django_redis/__init__.py", line 14, in get_redis_connection
+    cache = caches[alias]
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/cache/__init__.py", line 77, in __getitem__
+    "Could not find config for '%s' in settings.CACHES" % alias
+django.core.cache.backends.base.InvalidCacheBackendError: Could not find config for 'verify' in settings.CACHES
+ERROR 2019-07-28 20:50:03,281 basehttp 124 "GET /image_codes/3c9accc0-d0f6-4628-9ffd-92f21ccaf22a/ HTTP/1.1" 500 95291
+ERROR 2019-07-28 20:50:06,127 exception 135 Internal Server Error: /image_codes/dfca2c6b-b6b0-4813-b34a-c0a8c6b54019/
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/python/Desktop/meiduo/meiduo_project/meiduo1/apps/verifications/views.py", line 15, in get
+    redis_cli= get_redis_connection('verify')
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django_redis/__init__.py", line 14, in get_redis_connection
+    cache = caches[alias]
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/cache/__init__.py", line 77, in __getitem__
+    "Could not find config for '%s' in settings.CACHES" % alias
+django.core.cache.backends.base.InvalidCacheBackendError: Could not find config for 'verify' in settings.CACHES
+ERROR 2019-07-28 20:50:06,166 basehttp 124 "GET /image_codes/dfca2c6b-b6b0-4813-b34a-c0a8c6b54019/ HTTP/1.1" 500 95310
+ERROR 2019-07-28 20:50:18,618 exception 135 Internal Server Error: /image_codes/c8a65016-ab78-4d33-954e-118e485ab0f5/
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/python/Desktop/meiduo/meiduo_project/meiduo1/apps/verifications/views.py", line 15, in get
+    redis_cli= get_redis_connection('verify')
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django_redis/__init__.py", line 14, in get_redis_connection
+    cache = caches[alias]
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/cache/__init__.py", line 77, in __getitem__
+    "Could not find config for '%s' in settings.CACHES" % alias
+django.core.cache.backends.base.InvalidCacheBackendError: Could not find config for 'verify' in settings.CACHES
+ERROR 2019-07-28 20:50:18,658 basehttp 124 "GET /image_codes/c8a65016-ab78-4d33-954e-118e485ab0f5/ HTTP/1.1" 500 95299
+ERROR 2019-07-29 10:59:59,183 exception 135 Internal Server Error: /sms_codes/13234567894/
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view verifications.views.SmsView didn't return an HttpResponse object. It returned None instead.
+ERROR 2019-07-29 10:59:59,240 basehttp 124 "GET /sms_codes/13234567894/?image_code=iv5x&image_code_id=fc8ddd5d-8668-4ddc-bf7a-cba16acca171 HTTP/1.1" 500 64029
+ERROR 2019-07-31 20:58:33,023 exception 135 Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view users.views.LoginView didn't return an HttpResponse object. It returned None instead.
+ERROR 2019-07-31 20:58:33,082 basehttp 124 "POST /login/ HTTP/1.1" 500 66924
+ERROR 2019-08-02 22:16:49,929 exception 135 Internal Server Error: /emails/
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/contrib/auth/mixins.py", line 56, in dispatch
+    return super(LoginRequiredMixin, self).dispatch(request, *args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/python/Desktop/meiduo/meiduo_project/meiduo1/apps/users/views.py", line 182, in put
+    email = request.body.decode().get('email')
+AttributeError: 'str' object has no attribute 'get'
+ERROR 2019-08-02 22:16:49,981 basehttp 124 "PUT /emails/ HTTP/1.1" 500 89172
+ERROR 2019-08-02 22:19:13,762 exception 135 Internal Server Error: /emails/
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/contrib/auth/mixins.py", line 56, in dispatch
+    return super(LoginRequiredMixin, self).dispatch(request, *args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/python/Desktop/meiduo/meiduo_project/meiduo1/apps/users/views.py", line 182, in put
+    data_dict = json.load(request.body.decode())
+  File "/usr/lib/python3.5/json/__init__.py", line 265, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+ERROR 2019-08-02 22:19:13,805 basehttp 124 "PUT /emails/ HTTP/1.1" 500 94043
+ERROR 2019-08-03 11:35:01,614 exception 135 Internal Server Error: /emails/verification/
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/python/Desktop/meiduo/meiduo_project/meiduo1/apps/users/views.py", line 217, in get
+    user = User.objects.get(fk=user_params)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/query.py", line 371, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/query.py", line 784, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/query.py", line 802, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1250, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1276, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1154, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1034, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1352, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'fk' into field. Choices are: date_joined, email, email_active, first_name, groups, id, is_active, is_staff, is_superuser, last_login, last_name, logentry, mobile, oauthqquser, password, user_permissions, username
+ERROR 2019-08-03 11:35:01,826 basehttp 124 "GET /emails/verification/?token=eyJleHAiOjE1NjQ4MTA0OTEsImlhdCI6MTU2NDgwMzI5MSwiYWxnIjoiSFM1MTIifQ.eyJ1c2VyX2lkIjo3fQ.oWDaiWt6Dfam7ypneyCMV-Mj-EDCzp9lrMAeHfQk1V6QGmpAY5wwyISPqVoHnmOQ2zdqhic7ORGLR60TJate9w HTTP/1.1" 500 132145
+ERROR 2019-08-03 11:35:33,367 exception 135 Internal Server Error: /emails/verification/
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/python/Desktop/meiduo/meiduo_project/meiduo1/apps/users/views.py", line 217, in get
+    user = User.objects.get(pk=user_params)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/query.py", line 371, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/query.py", line 784, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/query.py", line 802, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1250, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1276, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1210, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1104, in build_lookup
+    return final_lookup(lhs, rhs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/lookups.py", line 74, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/home/python/.virtualenvs/new1/lib/python3.5/site-packages/django/db/models/fields/__init__.py", line 966, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'dict'
+ERROR 2019-08-03 11:35:33,503 basehttp 124 "GET /emails/verification/?token=eyJleHAiOjE1NjQ4MTA0OTEsImlhdCI6MTU2NDgwMzI5MSwiYWxnIjoiSFM1MTIifQ.eyJ1c2VyX2lkIjo3fQ.oWDaiWt6Dfam7ypneyCMV-Mj-EDCzp9lrMAeHfQk1V6QGmpAY5wwyISPqVoHnmOQ2zdqhic7ORGLR60TJate9w HTTP/1.1" 500 139238

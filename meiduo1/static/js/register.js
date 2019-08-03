@@ -243,7 +243,7 @@ var vm = new Vue({
                 responseType: 'json',
                 headers: {
                     // 'X-CSRFToken': document.getElementsByName('csrfmiddlewaretoken')[0].value
-                    'X-CSRFToken': getCookie('csrftoken')
+                    // 'X-CSRFToken': getCookie('csrftoken')
                 }
             })
                 .then(response => {
