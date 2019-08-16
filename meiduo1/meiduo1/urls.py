@@ -22,4 +22,10 @@ urlpatterns = [
     url(r'^', include('verifications.urls')),
     url(r'^', include('index.urls')),
     url(r'^', include('oauth.urls')),
+    url(r'^', include('areas.urls')),
+    url(r'^', include('goods.urls')),
+    url(r'^search/', include('haystack.urls')),
+    url(r'^', include('carts.urls')),
+    url(r'^', include('orders.urls')),
+    url(r'^', include('payments.urls')),
 ]

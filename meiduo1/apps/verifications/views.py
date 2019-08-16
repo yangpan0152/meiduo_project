@@ -69,6 +69,8 @@ class SmsView(View):
         # ccp.send_template_sms('18665287955', [str(code), 5], 1)
         # print(code)
         send_sms.delay(mobile, [str(code), 5], 1)
+        print(mobile)
+        print(code)
 
 
         #4 响应

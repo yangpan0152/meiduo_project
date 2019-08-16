@@ -1,0 +1,1 @@
+CART_COOKIE_EXPIRE = 60 * 60 * 2

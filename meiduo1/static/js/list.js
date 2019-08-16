@@ -8,8 +8,10 @@ var vm = new Vue({
         carts: [], // 购物车数据,
 		hots: [],
         category_id: category_id,
+        username:'',
     },
     mounted(){
+        this.username=getCookie('username')
         // 获取购物车数据
         this.get_carts();
 

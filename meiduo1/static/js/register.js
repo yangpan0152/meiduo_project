@@ -238,12 +238,11 @@ var vm = new Vue({
                 // 'image_code':this.image_code,
                 sms_code: this.sms_code,
                 allow: this.allow,
-
             }, {
                 responseType: 'json',
                 headers: {
                     // 'X-CSRFToken': document.getElementsByName('csrfmiddlewaretoken')[0].value
-                    // 'X-CSRFToken': getCookie('csrftoken')
+                    'X-CSRFToken': getCookie('csrftoken')
                 }
             })
                 .then(response => {

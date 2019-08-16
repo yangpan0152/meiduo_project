@@ -9,7 +9,7 @@ var vm = new Vue({
         total_selected_count: 0,
         total_selected_amount: 0,
         carts_tmp: [],
-        username:'',
+        username: '',
     },
     computed: {
         selected_all(){
@@ -24,7 +24,7 @@ var vm = new Vue({
         },
     },
     mounted(){
-        this.username=getCookie('username');
+        this.username = getCookie('username');
 
         // 初始化购物车数据并渲染界面
         this.render_carts();

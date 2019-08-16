@@ -45,10 +45,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'users.apps.UsersConfig',
     'verifications.apps.VerificationsConfig',
     'index.apps.IndexConfig',
     'oauth.apps.OauthConfig',
+    'areas.apps.AreasConfig',
+    'goods.apps.GoodsConfig',
+    'carts.apps.CartsConfig',
+    'orders.apps.OrdersConfig',
+    'payments.apps.PaymentsConfig',
+
+    'haystack', # 全文检索
+    'django_crontab', # 定时任务
 ]
 
 MIDDLEWARE = [
@@ -90,7 +99,7 @@ WSGI_APPLICATION = 'meiduo1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # 数据库引擎
+        'ENGINE': 'django.db.backends.mysql', # 数据库引擎(配置数据库交互的软件)
         'HOST': '127.0.0.1', # 数据库主机
         'PORT': 3306, # 数据库端口
         'USER': 'yangpan', # 数据库用户名
@@ -163,6 +172,20 @@ CACHES = {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     },
+    "browse_history": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/3",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+    "cart": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/4",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
 }
 #session存放在缓存上
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
@@ -226,6 +249,12 @@ QQ_CLIENT_ID = '101518219'
 QQ_CLIENT_SECRET = '418d84ebdc7241efb79536886ae95224'
 QQ_REDIRECT_URI = 'http://www.meiduo.site:8000/oauth_callback'
 
+#sinaweibo授权-应用信息
+APP_KEY='1427531308'
+APP_SECRET='14dcd8baf569dea90f35295a43471434'
+REDIRECT_URL='http://www.meiduo.site:8000/sina_callback'
+
+
 # 配置发邮件服务器
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # 指定邮件后端
 EMAIL_HOST = 'smtp.163.com'  # 发邮件主机
@@ -235,3 +264,49 @@ EMAIL_HOST_PASSWORD = 'chuanzhi26'  # 邮箱授权时获得的密码，非注册
 EMAIL_FROM = '美多商城<yangpan0152@163.com>'  # 发件人抬头
 #邮箱认证地址
 EMAIL_VERIFY_URL = 'http://www.meiduo.site:8000/emails/verification/'
+
+## 访问fastdfs中的图片域名
+FDFS_IMAGE_URL = 'http://image.meiduo.site:8888/'
+# 指定自定义的Django文件存储类
+DEFAULT_FILE_STORAGE = 'utils.storage.MeiduoStorage'
+
+# Haystack
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://192.168.50.148:9200/', # Elasticsearch服务器ip地址，端口号固定为9200
+        'INDEX_NAME': 'meiduo1', # Elasticsearch建立的索引库的名称
+    },
+}
+
+# 当添加、修改、删除数据时，自动生成索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+#规定由es搜索结果每页显示的元素个数
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 3
+
+#应用APPID
+ALIPAY_APPID='2016101000650489'
+#ALIPAY私钥
+ALIPAY_PRIVATE_PATH = os.path.join(BASE_DIR, 'apps/payments/alipay/app_private_key.pem')
+#ALIPAY公钥路径
+ALIPAY_PUBLIC_PATH = os.path.join(BASE_DIR, 'apps/payments/alipay/alipay_public_key.pem')
+# 使用True表示调用沙箱环境，使用False表示使用正式环境
+ALIPAY_DEBUG = True
+# 提示标题
+ALIPAY_TITLE = '美多商城-订单支付'
+# 回调地址
+ALIPAY_RETURN_URL = 'http://www.meiduo.site:8000/payment/status/'
+#网关地址
+ALIPAY_GATE='https://openapi.alipaydev.com/gateway.do?'
+
+#写静态文件的路径
+# 生成静态文件的路径
+STATIC_FILES_DIRS = os.path.join(BASE_DIR, 'static')
+
+CRONJOBS = [
+    # 每1分钟生成一次首页静态文件
+    ('*/1 * * * *', 'index.crons.generate_index', '>> ' + os.path.join(BASE_DIR, 'logs/index.log')),
+]
+
+#解决crontab中文问题
+CRONTAB_COMMAND_PREFIX = 'LANG_ALL=zh_cn.UTF-8'
